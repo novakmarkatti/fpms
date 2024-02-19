@@ -95,6 +95,51 @@
             "configPath": "jest.conf.js",
             "tsConfig": "tsconfig.spec.json"
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "fpms:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fpms:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "fpms:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "fpms:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "fpms:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fpms:serve:production"
+            }
+          }
         }
       }
     }
@@ -105,6 +150,8 @@
       "path": "./target/angular/",
       "environment": "all"
     },
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "e15b37fc-b87c-4c3d-a015-331e455edd8c",
+    "schematicCollections": ["@cypress/schematic", "@schematics/angular"]
   }
 }
