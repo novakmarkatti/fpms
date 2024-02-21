@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-stock-heading" data-cy="StockCreateUpdateHeading" jhiTranslate="fpmsApp.stock.home.createOrEditLabel">
+        Create or edit a Stock
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="fpmsApp.stock.symbol" for="field_symbol">Symbol</label>
+          <input type="text" class="form-control" name="symbol" id="field_symbol" data-cy="symbol" formControlName="symbol" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="fpmsApp.stock.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="fpmsApp.stock.quantity" for="field_quantity">Quantity</label>
+          <input type="number" class="form-control" name="quantity" id="field_quantity" data-cy="quantity" formControlName="quantity" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="fpmsApp.stock.purchasePrice" for="field_purchasePrice">Purchase Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="purchasePrice"
+            id="field_purchasePrice"
+            data-cy="purchasePrice"
+            formControlName="purchasePrice"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="fpmsApp.stock.currentPrice" for="field_currentPrice">Current Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="currentPrice"
+            id="field_currentPrice"
+            data-cy="currentPrice"
+            formControlName="currentPrice"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="fpmsApp.stock.portfolio" for="field_portfolio">Portfolio</label>
+          <select
+            class="form-control"
+            id="field_portfolio"
+            data-cy="portfolio"
+            name="portfolio"
+            formControlName="portfolio"
+            [compareWith]="comparePortfolio"
+          >
+            <option [ngValue]="null"></option>
+            @for (portfolioOption of portfoliosSharedCollection; track $index) {
+              <option [ngValue]="portfolioOption">{{ portfolioOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

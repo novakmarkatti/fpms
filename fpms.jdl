@@ -1,0 +1,19 @@
+entity Portfolio {
+  userName  String
+  emailAddress String
+}
+
+entity Stock {
+  symbol String
+  name String
+  quantity Integer
+  purchasePrice Double
+  currentPrice Double
+}
+
+relationship OneToMany {
+  // Portfolio{user(login)} to User with builtInEntity
+  Portfolio to Stock
+}
+
+paginate Stock with infinite-scroll

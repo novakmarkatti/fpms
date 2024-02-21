@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (stock) {
+      <div>
+        <h2 data-cy="stockDetailsHeading"><span jhiTranslate="fpmsApp.stock.detail.title">Stock</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ stock.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="fpmsApp.stock.symbol">Symbol</span></dt>
+          <dd>
+            <span>{{ stock.symbol }}</span>
+          </dd>
+          <dt><span jhiTranslate="fpmsApp.stock.name">Name</span></dt>
+          <dd>
+            <span>{{ stock.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="fpmsApp.stock.quantity">Quantity</span></dt>
+          <dd>
+            <span>{{ stock.quantity }}</span>
+          </dd>
+          <dt><span jhiTranslate="fpmsApp.stock.purchasePrice">Purchase Price</span></dt>
+          <dd>
+            <span>{{ stock.purchasePrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="fpmsApp.stock.currentPrice">Current Price</span></dt>
+          <dd>
+            <span>{{ stock.currentPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="fpmsApp.stock.portfolio">Portfolio</span></dt>
+          <dd>
+            @if (stock.portfolio) {
+              <div>
+                <a [routerLink]="['/portfolio', stock.portfolio.id, 'view']">{{ stock.portfolio.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/stock', stock.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

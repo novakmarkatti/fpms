@@ -1,0 +1,41 @@
+{
+  "annotations": {
+    "changelogDate": "20240219145218"
+  },
+  "applications": "*",
+  "entityTableName": "stock",
+  "fields": [
+    {
+      "fieldName": "symbol",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "purchasePrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "currentPrice",
+      "fieldType": "Double"
+    }
+  ],
+  "name": "Stock",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "portfolio",
+      "otherEntityRelationshipName": "stock",
+      "relationshipName": "portfolio",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

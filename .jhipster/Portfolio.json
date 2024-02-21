@@ -1,0 +1,28 @@
+{
+  "annotations": {
+    "changelogDate": "20240219145118"
+  },
+  "applications": "*",
+  "entityTableName": "portfolio",
+  "fields": [
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailAddress",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Portfolio",
+  "relationships": [
+    {
+      "otherEntityName": "stock",
+      "otherEntityRelationshipName": "portfolio",
+      "relationshipName": "stock",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

@@ -50,6 +50,9 @@ public class CacheConfiguration {
             createCache(cm, com.jhipster.fpms.domain.User.class.getName() + ".authorities");
             createCache(cm, com.jhipster.fpms.domain.PersistentToken.class.getName());
             createCache(cm, com.jhipster.fpms.domain.User.class.getName() + ".persistentTokens");
+            createCache(cm, com.jhipster.fpms.domain.Portfolio.class.getName());
+            createCache(cm, com.jhipster.fpms.domain.Portfolio.class.getName() + ".stocks");
+            createCache(cm, com.jhipster.fpms.domain.Stock.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
