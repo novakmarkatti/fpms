@@ -1,0 +1,59 @@
+Project Title: Financial Portfolio Management System
+Project Overview:
+Develop a simple Financial Portfolio Management System that allows users to create and manage a portfolio of stocks. The application will interact with the Yahoo Finance API to fetch real-time stock data. Users should be able to add stocks to their portfolio, view current prices, and see their portfolio's performance.
+
+Technical Requirements:
+Backend Framework: Spring Boot
+External API: Yahoo Finance API for fetching stock data
+Database: Use an in-memory database like H2 for storing user portfolio information
+Security: Basic Authentication with Spring Security
+Documentation: Swagger or Springdoc OpenAPI for API documentation
+Features & Functionalities:
+
+-- 1 --
+User Registration and Authentication:
+Implement functionality for user registration and authentication.
+Use Spring Security for basic authentication.
+
+-- 2 -- 
+Model Creation:
+Define a Portfolio entity that includes user details and a list of Stock entities.
+Define a Stock entity with fields such as symbol, name, quantity, purchase price, and current price.
+
+-- 3 --
+Yahoo Finance API Integration:
+Create a service to fetch current stock prices and details using the Yahoo Finance API.
+Implement caching to reduce the number of API calls for frequently requested stocks.
+
+-- 4 --
+Portfolio Management:
+Allow users to add, update, and remove stocks from their portfolio.
+Provide an endpoint to display the user's portfolio, showing each stock, its current price (fetched from Yahoo Finance), and the total value of the portfolio.
+
+-- 5 --
+Performance Metrics:
+Calculate and display performance metrics for the portfolio, such as total gain/loss and percentage change, based on the purchase prices and current prices of the stocks in the portfolio.
+
+-- 6 --
+Security Configuration:
+Secure API endpoints using Spring Security, ensuring that users can only access their portfolio.
+
+-- 7 --
+API Documentation:
+Document all REST endpoints using Swagger or Springdoc OpenAPI, including authentication mechanisms and how to interact with the Yahoo Finance API.
+
+-- 8 --
+Testing:
+Write unit tests for service layer methods and integration tests for REST endpoints, focusing on security and API integration aspects.
+
+-- 9 --
+Deliverables:
+Source code repository (e.g., GitHub) with complete application code, including source files, resources, and configurations.
+A README file detailing setup instructions, how to authenticate, how to use the API endpoints, and an overview of the Yahoo Finance API integration.
+
+Evaluation Criteria:
+Code Quality: Clarity, maintainability, and adherence to Java and Spring best practices.
+Functionality: Correct implementation of features, especially the integration with Yahoo Finance API and security aspects.
+Documentation: Clear API documentation and easy-to-follow setup instructions in the README.
+
+Ezt jhipster-el készítsd el, először a jhipster oldalán nézd meg hogy kell használni. Azzal az 1,6,7,8 feladatok maguktól meg is lesznek.
